@@ -76,7 +76,7 @@
                         密碼
                     </div>
                     <div class="grid content-center">
-                        <input name="password" type="text" class="
+                        <input name="password" type="password" class="
                     w-48
                 px-3
                 py-1.5
