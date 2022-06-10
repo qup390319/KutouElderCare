@@ -187,7 +187,6 @@ class HomeController extends Controller
         }catch (\Exception $exception){
             return $exception;
         }
-
     }
 
     public function delete_residents_data(Request $request)
