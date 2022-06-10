@@ -58,10 +58,16 @@
             <div class="flex justify-center">
                 <div class="">
                     <div class="input-group relative flex flex-wrap items-stretch w-44">
-                        <input id="search_input" type="search" class="h-12 form-control relative flex-auto block w-full px-3 py-1.5 font-bold text-xl text-gray-700 bg-white bg-clip-padding border border-gray-700 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-100 focus:outline-none" placeholder="搜尋" aria-label="Search" aria-describedby="button-addon2">
-                        <button onclick="search_btn()" class="btn inline-block border border-gray-700 px-6 py-2.5 bg-blue-200 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path class="text-gray-700" fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                        <input id="search_input" type="search"
+                               class="h-12 form-control relative flex-auto block w-full px-3 py-1.5 font-bold text-xl text-gray-700 bg-white bg-clip-padding border border-gray-700 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-100 focus:outline-none"
+                               placeholder="搜尋" aria-label="Search" aria-describedby="button-addon2">
+                        <button onclick="search_btn()"
+                                class="btn inline-block border border-gray-700 px-6 py-2.5 bg-blue-200 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-300 hover:shadow-lg focus:bg-blue-300  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-300 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+                                type="button" id="button-addon2">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"
+                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path class="text-gray-700" fill="currentColor"
+                                      d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
                             </svg>
                         </button>
                     </div>
@@ -130,6 +136,25 @@
             </div>
         </div>
         <!-- /身分證字號 -->
+
+        <!-- 日期 -->
+        <div class="pl-10 pt-5 pr-3">
+            <div class="font-bold text-xl text-gray-800">生日</div>
+        </div>
+        <div class="flex pl-10 pr-3">
+            <div class="flex justify-center">
+                <div class="">
+                    <div class="input-group relative flex flex-wrap items-stretch w-44">
+                        <input id="txt_DATE" type="text"
+                               class="input_cell h-12 form-control relative flex-auto block w-full px-3 py-1.5 font-bold text-xl text-gray-700 bg-white bg-clip-padding border border-gray-700 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-100 focus:outline-none"
+                               placeholder="日期" aria-label="Search" aria-describedby="button-addon3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /日期 -->
+
+
         {{-- 增加 取消 功能列--}}
         <div class="flex pl-10 pt-5 pb-5">
             <!-- 增加 -->
@@ -169,9 +194,9 @@
 
         {{-- /增加 取消 功能列--}}
     </div>
-
     <!-- /新增居民功能列 -->
-    <!-- 檢視全部 -->
+
+    <!-- 檢視全部人 -->
     <div class="flex px-10 pt-5">
         <button href="" onClick="see_all()" class="
             w-full
@@ -183,24 +208,24 @@
             bg-blue-100
             border border-gray-700
             rounded">
-            檢視全部
+            檢視全部人
         </button>
     </div>
-    <!-- /檢視全部 -->
+    <!-- /檢視全部人 -->
+
     <!-- 居民清單 -->
     <div class="w-full px-10 pt-1 pb-10">
         <!-- 單行 -->
         <div class="w-full table border border-gray-700 bg-white">
             @foreach($data as $key=>$row)
-                {{--            <a>{{$row->name}}</a>--}}
                 <div class="flex people_table space-x-2 justify-between p-2 border border-gray-700">
                     <a href="{{route("person_data")}}?user_id={{$row->user_id}}"
                        class="inline-block px-2 py-1 bg-gray-600 text-white text-2xl leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
                         {{$row->user_name}}
-{{--                        {{substr($row->id_num, -4)}}--}}
                     </a>
+
                     <a href="{{route("delete_residents_data")}}?user_id={{$row->user_id}}"
-                            class="w-fit inline-block px-2 py-1 bg-gray-600 text-white text-center grid content-center text-2xl text-lg leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                       class="w-fit inline-block px-2 py-1 bg-gray-600 text-white text-center grid content-center text-2xl text-lg leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
                         刪除
                     </a>
                 </div>
@@ -209,10 +234,7 @@
         </div>
         <!-- /單行 -->
     </div>
-
-
     <!-- /居民清單 -->
-
 
     <!-- 功能列 -->
     <div class="flex justify-end ">
@@ -259,6 +281,10 @@
 
         let add_id_num = $('#add_id_num').val();
         let add_name = $('#add_name').val();
+        let user_birth = $('#txt_DATE').val();
+        user_birth = user_birth.replaceAll("/", "-")
+        let birthday = user_birth.replaceAll("-", "")
+
 
         $.ajax({
             url: '{{route('insert_residents_data')}}',
@@ -267,8 +293,11 @@
                 _token: '{{csrf_token()}}',
                 add_id_num: add_id_num,
                 add_name: add_name,
+                user_birth:user_birth,
+                birthday:birthday,
             },
             success: function (res) {
+                // console.log(res);
                 //新增成功再關掉
                 location.reload();
             },
@@ -288,37 +317,60 @@
 
     }
 
-    function see_all(){
+    function see_all() {
         location.reload();
     }
 
-    function search_btn(){
-        let key_word=$('#search_input').val();
+    function search_btn() {
+        let key_word = $('#search_input').val();
         $('.table .people_table').remove();
 
         $.ajax({
             url: '{{route('search_residents_data')}}',
             method: 'GET',
             data: {
-                key_word:key_word,
+                key_word: key_word,
             },
             success: function (res) {
                 console.log(res);
-                if (res.length>0){
-                    res.forEach(function (row){
-                        $('.table').append(`
-                        <div class="flex people_table space-x-2 justify-between p-2 border border-gray-700">
-                    <a href="{{route("person_data")}}?user_id=${row['user_id']}"
-                       class="inline-block px-2 py-1 bg-gray-600 text-white text-2xl leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
-                        ${row['user_name']} ${row['id_num'].substr(-4)}
-                        </a>
-                        <a href="{{route("delete_residents_data")}}?user_id=${row['user_id']}"
-                            class="w-fit inline-block px-2 py-1 bg-gray-600 text-white text-center grid content-center text-2xl text-lg leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
-                        刪除
-                    </a>
-                </div>
-                        `);
+                //如果有查資料的話
+                if (res['data'].length > 0) {
+                    //row出每筆資料
+                    res['data'].forEach(function (row) {
+                        $show = false;
+                        res['repeat'].forEach(function (row_re) {
+                            if (row_re['user_name'] === row['user_name']) {
+                                $show = true;
+                            }
+                        })
+                        if ($show===true){
+                            $('.table').append(`
+                                    <div class="flex people_table space-x-2 justify-between p-2 border border-gray-700">
+                                <a href="{{route("person_data")}}?user_id=${row['user_id']}"
+                                   class="inline-block px-2 py-1 bg-gray-600 text-white text-2xl leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    ${row['user_name']} ${row['id_num'].substr(-4)}
+                                    </a>
+                                    <a href="{{route("delete_residents_data")}}?user_id=${row['user_id']}"
+                                        class="w-fit inline-block px-2 py-1 bg-gray-600 text-white text-center grid content-center text-2xl text-lg leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    刪除
+                                </a>
+                            </div>`);
+                        }else {
+                            $('.table').append(`
+                                    <div class="flex people_table space-x-2 justify-between p-2 border border-gray-700">
+                                <a href="{{route("person_data")}}?user_id=${row['user_id']}"
+                                   class="inline-block px-2 py-1 bg-gray-600 text-white text-2xl leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    ${row['user_name']}
+                                    </a>
+                                    <a href="{{route("delete_residents_data")}}?user_id=${row['user_id']}"
+                                        class="w-fit inline-block px-2 py-1 bg-gray-600 text-white text-center grid content-center text-2xl text-lg leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    刪除
+                                </a>
+                            </div>`);
+                        }
                     })
+                }else{
+                    $('.table').append(`<div class="flex people_table space-x-2 justify-center p-2 border border-gray-700"><div class="font-bold text-xl text-gray-400" >查無此人</div></div>`);
                 }
 
             },

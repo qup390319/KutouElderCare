@@ -32,26 +32,32 @@ class LoginController extends Controller
             ->first();
 //        $auth = 'none';
 
-        $result = [
-            'user_id' => $user_data->user_id,
-        ];
+        if ($user_data!=''){
+            $result = [
+                'user_id' => $user_data->user_id,
+            ];
 
 
-        if ($user_data) {
-            $auth = $user_data->auth;
-        }
+            if ($user_data) {
+                $auth = $user_data->auth;
+            }
 //
-        if ($auth == '0') {
-            //return 管理員
-            return redirect()->route('all_people',$result);
-        }
-        if ($auth == '1') {
-            //return 一般使用者
-            return redirect()->route('person_data',$result);
-        }
-        if ($auth === 'none') {
+            if ($auth == '0') {
+                //return 管理員
+                return redirect()->route('all_people',$result);
+            }
+            if ($auth == '1') {
+                //return 一般使用者
+                return redirect()->route('person_ordinary_data',$result);
+            }
+            if ($auth === 'none') {
+                return redirect()->route('get_login_page');
+            }
+        }else{
             return redirect()->route('get_login_page');
         }
+
+
 
     }
 }

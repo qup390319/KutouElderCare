@@ -33,6 +33,9 @@ Route::get('/person', [HomeController::class, 'person_data'])->name('person_data
 Route::get('/person/get_date_data', [HomeController::class, 'get_date_data'])->name('get_date_data');
 Route::post('/person/edit_person_data', [HomeController::class, 'edit_person_data'])->name('edit_person_data');
 Route::post('/person/insert_person_data', [HomeController::class, 'insert_person_data'])->name('insert_person_data');
+//person_ordinary
+Route::get('/person_ordinary_data', [HomeController::class, 'person_ordinary_data'])->name('person_ordinary_data');
+Route::get('/person_ordinary/get_ordinary_date_data', [HomeController::class, 'get_ordinary_date_data'])->name('get_ordinary_date_data');
 
 
 

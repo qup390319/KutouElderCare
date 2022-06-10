@@ -25,7 +25,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 
-
     </style>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
@@ -112,46 +111,9 @@
             </div>
             <!-- /日期 -->
 
-            <!-- 修改 -->
-            <div class="flex mt-10">
-                <button onclick="edit()" id="edit" class="
-            w-fit
-            h-fit
-            px-3
-            py-1
-            text-xl
-            font-bold
-            text-gray-700
-            bg-blue-100
-            border border-gray-700
-            rounded">
-                    修改
-                </button>
-            </div>
-            <!-- /修改 -->
-
-            <!-- 新增 -->
-            <div class="flex mt-10">
-                <button id="add_data" onclick="add_data()" class="
-            hidden
-            w-fit
-            h-fit
-            px-3
-            py-1
-            text-xl
-            font-bold
-            text-gray-700
-            bg-blue-100
-            border border-gray-700
-            rounded">
-                    新增
-                </button>
-            </div>
-            <!-- /新增 -->
-
-            <!-- 回上頁 -->
+            <!-- 登出 -->
             <div class="flex mr-10 mt-10">
-                <button href="" onClick="window.history.go(-1)" class="
+                <a href="{{route("get_login_page")}}" class="
             w-fit
             h-fit
             px-3
@@ -162,8 +124,8 @@
             bg-blue-100
             border border-gray-700
             rounded">
-                    回上頁
-                </button>
+                    登出
+                </a>
             </div>
             <!-- /回上頁 -->
         </div>
@@ -346,80 +308,7 @@
 
         <!-- 功能列 -->
         <div class="flex justify-end ">
-            <!-- 新增儲存 -->
-            <div class="flex pr-5 pt-5">
-                <button href="" id="store_add" onclick="store_add()" class="
-            hidden
-            w-fit
-            px-3
-            py-1.5
-            text-3xl
-            font-bold
-            text-white
-            bg-green-600
-            border border-white
-            rounded">
-                    新增儲存
-                </button>
-            </div>
-            <!-- /新增儲存 -->
 
-            <!-- 儲存 -->
-            <div class="flex pr-5 pt-5">
-                <button href="" id="store" onclick="store()" class="
-            hidden
-            w-fit
-            px-3
-            py-1.5
-            text-3xl
-            font-bold
-            text-white
-            bg-green-600
-            border border-white
-            rounded">
-                    儲存
-                </button>
-            </div>
-            <!-- /儲存 -->
-
-            <!-- 取消 -->
-            <div class="flex pr-10 pt-5">
-                <button href="" id="cancel" onclick="cancel()" class="
-            hidden
-            w-fit
-            px-3
-            py-1.5
-            text-3xl
-            font-bold
-            text-white
-            bg-blue-600
-            border border-white
-            rounded">
-                    取消
-                </button>
-            </div>
-            <!-- /取消 -->
-
-        </div>
-        <!-- /功能列 -->
-
-        <!-- 功能列 -->
-        <div class="flex justify-end ">
-            <!-- 登出 -->
-            <div class="flex px-10 pt-10">
-                <a href="{{route("get_login_page")}}" class="
-            w-fit
-            px-3
-            py-1.5
-            text-3xl
-            font-bold
-            text-gray-700
-            bg-blue-100
-            border border-gray-700
-            rounded">
-                    登出
-                </a>
-            </div>
         </div>
         <!-- /功能列 -->
     </div>
@@ -480,7 +369,7 @@
 
         let input_cell = $('.input_cell');
         $.each(input_cell, function (index, value) {
-            if (input_cell.eq(index).val().trim().length===0){
+            if (input_cell.eq(index).val().trim().length === 0) {
                 input_cell.eq(index).val('0');
             }
         })
@@ -666,7 +555,6 @@
         })
 
     }
-
 
 
     function cancel() {
