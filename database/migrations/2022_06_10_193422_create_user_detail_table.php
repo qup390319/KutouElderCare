@@ -19,6 +19,7 @@ class CreateUserDetailTable extends Migration
             $table->string('blood')->nullable();
             $table->string('hand')->nullable();
             $table->string('sit')->nullable();
+            $table->string('walk')->nullable();
             $table->float('user_tall')->nullable();
             $table->float('user_weight')->nullable();
             $table->float('user_bfr')->nullable();
